@@ -19,7 +19,7 @@ The existing workflow is `.github/workflows/deploy-pages.yml`. To use it instead
 
 ## YouTube API Worker
 
-The optional API backend is separate from static hosting. Deploy `worker/index.js` as a Cloudflare Worker. Add a secret named `YOUTUBE_API_KEY` in Worker Settings, then set `window.VYBE_CONFIG.API_BASE` in `config.js` to the Worker URL. Never put API keys in frontend code or GitHub. Endpoints: `/api/health`, `/api/search?q=term`, and `/api/channel?id=UC...`.
+The optional API backend is separate from static hosting. Deploy `worker/index.js` as a Cloudflare Worker. Add `YOUTUBE_API_KEY` as a Worker secret and set `ALLOWED_ORIGIN` to the exact VYBE site origin (the default is `https://ahnafalzaeem2k13.github.io`). Then set `window.VYBE_CONFIG.API_BASE` in `config.js` to the Worker URL. Never put API keys in frontend code or GitHub. The Worker validates requests, allowlists browser origins, caches successful responses for five minutes, deduplicates concurrent identical requests and returns a clear 429 quota response. Test without consuming API quota using `node worker/test.mjs`.
 
 ## Database and accounts
 
