@@ -16,8 +16,9 @@ Then open `http://localhost:8080`.
 
 - Responsive home feed, category chips, video cards and official YouTube privacy-enhanced embeds.
 - Watch pages, related videos, Shorts-style vertical playback, trending, channel discovery and local search.
+- Channel pages with Videos, Shorts and Playlists tabs, subscriber actions and channel-local filtering.
 - Search filters for content type, duration, upload date and view count.
-- Device-local likes, subscriptions, watch history, saved videos, comments, notifications, playlists and profile.
+- Device-local likes/dislikes, subscriptions, watch history, saved videos, threaded comments/replies, comment likes, report capture, read/unread notifications, playlists and profile.
 - Local data backup export as JSON.
 - Manual YouTube URL and HTTPS direct MP4 import. YouTube playback uses the official embed player; only import media you own or are authorized to share.
 - System/light/dark theme selection and an English/Bengali language toggle foundation.
