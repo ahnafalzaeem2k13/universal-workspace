@@ -51,7 +51,7 @@ YouTube API quotas and provider free tiers can change. VYBE does not download or
 
 ## Accounts and database
 
-`supabase/schema.sql` is a starting schema for profiles, channels, videos, subscriptions, likes, comments, notifications, playlists, watch history and reports. The frontend is not yet connected to Supabase authentication or remote syncing. A Supabase project URL and anon key are required before cloud accounts can be enabled.
+`supabase/schema.sql` is the initial schema for profiles, channels, videos, subscriptions, likes, comments, notifications, playlists, watch history and reports. Then apply `supabase/migrations/202611280001_harden_security.sql` for foreign-key indexes, profile creation on signup, same-video reply validation, channel-owner pin permissions, safer report rules and notification write restrictions. The migration passed PostgreSQL parser validation but has not been executed against a live Supabase project. The frontend is not yet connected to Supabase authentication or remote syncing. A Supabase project URL and anon key are required before cloud accounts can be enabled.
 
 ## Current limitations
 
