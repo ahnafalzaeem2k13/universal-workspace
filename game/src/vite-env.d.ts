@@ -1,0 +1,2 @@
+/// <reference types="vite/client" />
+interface Window { __THREE_GAME_DIAGNOSTICS__?: {frame:number;player:{position:{x:number;y:number;z:number}};score:number;beacons:number;health:number;paused:boolean;ended:boolean;complete:boolean}; __THREE_GAME_TEST_HOOKS__?: {seed:(n:number)=>Promise<void>;setState:(s:string)=>Promise<{state:string}>;setPausedForScreenshot:(v:boolean)=>Promise<void>;setReducedMotion:(v:boolean)=>Promise<void>;hideDebugUi:(v:boolean)=>Promise<void>}; }
