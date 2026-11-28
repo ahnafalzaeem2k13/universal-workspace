@@ -37,5 +37,5 @@ Legend: [ ] not started · [/] in progress · [x] verified complete · [!] block
 - [x] Add repeatable Playwright feature regression coverage.
 - [x] Add Node Worker unit tests.
 - [ ] Expand accessibility checks and test API failure states.
-- [ ] Verify live GitHub Pages deployment after changes.
+- [x] Verify live GitHub Pages deployment after changes; latest Actions run succeeded and live desktop/iPad/mobile checks returned HTTP 200.
 - [ ] Update README and deployment guide with exact implemented status.
