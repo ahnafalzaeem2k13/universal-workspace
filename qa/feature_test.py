@@ -97,6 +97,36 @@ async def main():
         await page.locator("#channelquery").fill("Tokyo")
         assert await page.locator("#channelquery").input_value() == "Tokyo"
 
+        # Search suggestions and channel-only results.
+        await page.locator("#q").fill("Mik")
+        assert await page.locator("#vybe-search-suggestions option").count() >= 1
+        await page.locator("#q").fill("Mika")
+        await page.locator("#search button").click()
+        await page.locator("#stype").select_option("channel")
+        assert "Mika Travels" in await page.locator("#searchgrid").inner_text()
+
+        # Restore a validated local backup and reload the app state.
+        await page.locator("#account").click()
+        await page.locator("#restoredata").click()
+        import json
+        backup = {
+            "version": 1,
+            "data": {
+                "name": "Restored User", "likes": ["a"], "dislikes": [],
+                "subs": ["Mindfield"], "saved": [], "history": [],
+                "comments": {}, "notifications": [], "playlists": [],
+                "imports": [], "commentLikes": [], "reports": []
+            }
+        }
+        await page.locator("#backupfile").set_input_files({
+            "name": "vybe-backup.json",
+            "mimeType": "application/json",
+            "buffer": json.dumps(backup).encode()
+        })
+        await page.wait_for_timeout(800)
+        restored = await page.evaluate("JSON.parse(localStorage.getItem('vybe'))")
+        assert restored["name"] == "Restored User" and restored["likes"] == ["a"]
+
         assert not errors, errors
         print("PASS: search date filter, theme cycle, backup export, secure imports, Shorts URL parsing, likes/dislikes, threaded comments, comment likes/reports, notification read state; no page errors")
         await browser.close()
