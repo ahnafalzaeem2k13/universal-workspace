@@ -23,6 +23,6 @@ The optional API backend is separate from static hosting. Deploy `worker/index.j
 
 ## Database and accounts
 
-Create a Supabase project and run `supabase/schema.sql`. The current frontend is not yet connected to Supabase authentication or remote syncing; user data remains browser-local.
+Create a Supabase project, run `supabase/schema.sql`, then run `supabase/migrations/202611280001_harden_security.sql` in the SQL editor. The migration hardens RLS and adds indexes; it has been syntax-parsed but not applied to a live project. The current frontend is not yet connected to Supabase authentication or remote syncing; user data remains browser-local.
 
 Never commit YouTube API keys, Supabase service-role keys, OAuth secrets, or private tokens.
