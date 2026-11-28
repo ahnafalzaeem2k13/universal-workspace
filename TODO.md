@@ -16,7 +16,7 @@ Legend: [ ] not started · [/] in progress · [x] verified complete · [!] block
 - [x] Add local data backup export and validated restore.
 - [x] Build channel pages with Videos, Shorts and Playlists tabs and channel filtering.
 - [ ] Fix routing, playback fallbacks, mobile navigation and accessibility.
-- [ ] Improve Shorts navigation and playback controls.
+- [x] Improve Shorts navigation, keyboard controls, direct MP4 playback and comments handoff.
 
 ## P2 — User features
 - [x] Add mutually exclusive local likes/dislikes.
