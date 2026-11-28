@@ -27,14 +27,16 @@ Legend: [ ] not started · [/] in progress · [x] verified complete · [!] block
 - [ ] Implement optional authenticated cloud accounts and cross-device sync.
 
 ## P3 — Backend
-- [x] Add a Supabase security migration with RLS hardening, reply validation, profile creation and FK indexes; SQL parser validation passed.
-- [ ] Apply migration to a live Supabase project and test authenticated policies.
-- [ ] Harden YouTube Worker and API caching/quota handling.
+- [x] Add Supabase security migration with RLS hardening, reply validation, profile creation and FK indexes; SQL parser validation passed.
+- [x] Harden Worker input/method validation, CORS allowlist, caching, request deduplication and quota responses.
+- [x] Add mocked Worker tests; no real YouTube API quota consumed.
+- [ ] Apply Supabase migration to a live project and test authenticated policies.
 - [!] YouTube API integration end-to-end — waiting for API key and Worker deployment.
 - [!] Cloud accounts and cross-device sync — waiting for Supabase project credentials.
 
 ## P4 — Release quality
 - [x] Add repeatable Playwright feature regression coverage.
+- [x] Add Node Worker unit tests.
 - [ ] Expand accessibility checks and test API failure states.
 - [ ] Verify live GitHub Pages deployment after changes.
 - [ ] Update README and deployment guide with exact implemented status.
