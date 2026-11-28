@@ -1,35 +1,63 @@
 # VYBE — independent video platform
 
-A responsive, installable video discovery app. VYBE is a separate brand and is not affiliated with YouTube.
+VYBE is an independent, responsive video discovery and sharing frontend. It is not affiliated with YouTube.
 
-## Run
+## Run locally
 
-Serve the repository root over HTTP: `python -m http.server 8080`, then open `http://localhost:8080`.
+Serve the repository root over HTTP:
 
-## Working now
+```bash
+python -m http.server 8080
+```
 
-- Responsive home feed, category chips, video cards, YouTube privacy-enhanced embeds.
-- Watch pages, related videos, Shorts-style vertical embed view, search, trending and channel discovery.
-- Device-local likes, subscriptions, watch history, saved videos, comments, notifications and profile.
-- Manual YouTube URL / direct MP4 URL import (only share content you own or are authorized to share).
-- Light/dark theme, language-toggle foundation, offline shell cache.
+Then open `http://localhost:8080`.
 
-Local state is stored only in this browser; it does not sync across devices.
+## Implemented frontend features
+
+- Responsive home feed, category chips, video cards and official YouTube privacy-enhanced embeds.
+- Watch pages, related videos, Shorts-style vertical playback, trending, channel discovery and local search.
+- Search filters for content type, duration, upload date and view count.
+- Device-local likes, subscriptions, watch history, saved videos, comments, notifications, playlists and profile.
+- Local data backup export as JSON.
+- Manual YouTube URL and HTTPS direct MP4 import. YouTube playback uses the official embed player; only import media you own or are authorized to share.
+- System/light/dark theme selection and an English/Bengali language toggle foundation.
+- Offline shell cache and responsive layouts.
+
+Local state stays in the current browser/device. It is not account-backed and does not sync across devices.
+
+## Automated browser tests
+
+With Python Playwright and Chromium installed:
+
+```bash
+python qa/smoke_test.py
+python qa/feature_test.py
+```
+
+The smoke suite covers desktop, iPad, mobile, category filtering, watch pages, comments, Shorts and mobile navigation. The feature suite covers search date filters, theme selection, local backup export, HTTPS-only MP4 imports and YouTube Shorts URL parsing.
 
 ## Hosting
 
-**Recommended: Cloudflare Pages.** This is a static HTML/CSS/JavaScript app, so no build step is needed. Connect this GitHub repository in Cloudflare Pages, use branch `main`, framework preset `None`, leave the build command empty, and set the output directory to `.` (repository root). See [DEPLOYMENT.md](DEPLOYMENT.md). Each push to `main` will publish automatically once the GitHub connection is authorized.
+GitHub Pages is the current public host. The workflow is `.github/workflows/deploy-pages.yml`; repository Pages must be enabled with **Settings → Pages → Source → GitHub Actions**.
 
-GitHub Pages is also supported through `.github/workflows/deploy-pages.yml`, but it requires enabling **Settings → Pages → Source → GitHub Actions** first.
+Cloudflare Pages is an alternative static host. See [DEPLOYMENT.md](DEPLOYMENT.md).
 
 ## YouTube Data API
 
-Deploy `worker/index.js` as a Cloudflare Worker. Add `YOUTUBE_API_KEY` in Worker Settings as a secret, never in frontend code or GitHub. Set `window.VYBE_CONFIG.API_BASE` in `config.js` to the Worker URL. Endpoints: `/api/health`, `/api/search?q=term`, `/api/channel?id=UC....`. The Worker caches successful API results for five minutes, coalesces duplicate requests and returns clear quota errors. It uses official API metadata and official embed playback; it does not download or scrape videos.
+The optional proxy is in `worker/index.js`. Deploy it as a Cloudflare Worker, add `YOUTUBE_API_KEY` as a Worker secret, and set `window.VYBE_CONFIG.API_BASE` in `config.js` to the Worker URL. Never put API keys in frontend code or GitHub. Endpoints currently include `/api/health`, `/api/search?q=term` and `/api/channel?id=UC...`. API-backed imports are not live until the Worker and secret are configured.
 
-## Database and accounts
+YouTube API quotas and provider free tiers can change. VYBE does not download or scrape YouTube videos.
 
-`supabase/schema.sql` is the initial schema and row-level security setup for profiles, channels, videos, subscriptions, likes, comments/replies, notifications, playlists, watch history and reports. Run it in a Supabase SQL editor after creating a project. The frontend has not yet been wired to Supabase authentication or remote syncing.
+## Accounts and database
 
-## Remaining production work
+`supabase/schema.sql` is a starting schema for profiles, channels, videos, subscriptions, likes, comments, notifications, playlists, watch history and reports. The frontend is not yet connected to Supabase authentication or remote syncing. A Supabase project URL and anon key are required before cloud accounts can be enabled.
 
-Cloud authentication and cross-device sync, server-persisted comments and likes, channel import/refresh UI, moderation workflows, full Bengali translations and truly personalized recommendations require backend credentials and additional integration. No credentials are included. Free-tier quotas and terms may change.
+## Current limitations
+
+- No cloud login or cross-device sync yet.
+- No live YouTube API results until a Worker URL and API key are configured.
+- No production moderation pipeline or server-persisted comments/likes.
+- Automatic detection of which short-duration uploads are actually Shorts is not provided by the YouTube Data API; do not treat all videos under three minutes as Shorts.
+- Free-tier quotas, policies and availability are controlled by providers and are not guaranteed.
+
+See [PLAN.md](PLAN.md), [TODO.md](TODO.md) and [DEPLOYMENT.md](DEPLOYMENT.md) for the build roadmap and setup notes.
