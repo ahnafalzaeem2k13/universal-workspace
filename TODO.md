@@ -11,9 +11,9 @@ Legend: [ ] not started · [/] in progress · [x] verified complete · [!] block
 ## P1 — Core experience
 - [/] Refactor fragile monolithic frontend code into maintainable modules.
 - [x] Harden YouTube URL parsing and require HTTPS for direct MP4 imports.
-- [x] Add upload-date filtering to search results.
+- [x] Add search suggestions, channel-only search and upload-date/duration filters.
 - [x] Add system/dark/light theme cycling and system preference detection.
-- [x] Add local data backup export for likes, subscriptions, comments, playlists and history.
+- [x] Add local data backup export and validated restore.
 - [x] Build channel pages with Videos, Shorts and Playlists tabs and channel filtering.
 - [ ] Fix routing, playback fallbacks, mobile navigation and accessibility.
 - [ ] Improve Shorts navigation and playback controls.
@@ -22,7 +22,6 @@ Legend: [ ] not started · [/] in progress · [x] verified complete · [!] block
 - [x] Add mutually exclusive local likes/dislikes.
 - [x] Add threaded local comment replies, sorting, comment likes and report capture.
 - [x] Add notification read/unread state.
-- [ ] Add validated local backup restore and full data portability.
 - [ ] Finish Bengali translations.
 - [ ] Implement optional authenticated cloud accounts and cross-device sync.
 
