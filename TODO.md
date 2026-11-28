@@ -13,15 +13,17 @@ Legend: [ ] not started · [/] in progress · [x] verified complete · [!] block
 - [x] Harden YouTube URL parsing and require HTTPS for direct MP4 imports.
 - [x] Add upload-date filtering to search results.
 - [x] Add system/dark/light theme cycling and system preference detection.
-- [x] Add local data export for likes, subscriptions, comments, playlists and history.
+- [x] Add local data backup export for likes, subscriptions, comments, playlists and history.
 - [ ] Fix routing, playback fallbacks, mobile navigation and accessibility.
 - [ ] Improve Shorts navigation and channel pages.
 
 ## P2 — User features
-- [ ] Complete local interactions and data import/restore.
-- [ ] Add threaded comments, comment likes, sorting and reporting UI.
-- [ ] Add notification read/unread state.
+- [x] Add mutually exclusive local likes/dislikes.
+- [x] Add threaded local comment replies, sorting, comment likes and report capture.
+- [x] Add notification read/unread state.
+- [ ] Add validated local backup restore and full data portability.
 - [ ] Finish Bengali translations.
+- [ ] Implement optional authenticated cloud accounts and cross-device sync.
 
 ## P3 — Backend
 - [ ] Harden YouTube Worker and API caching/quota handling.
