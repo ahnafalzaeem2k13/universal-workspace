@@ -85,6 +85,18 @@ async def main():
         await page.locator("#markread").click()
         assert "Read" in await page.locator("#content").inner_text()
 
+        # Channel pages expose tabs and a working local filter.
+        await page.locator('aside a[href="#channels"]').click()
+        await page.locator("[data-channel]").first.click()
+        assert await page.locator('[data-channel-tab="videos"]').count() == 1
+        await page.locator('[data-channel-tab="shorts"]').click()
+        assert "on" in (await page.locator('[data-channel-tab="shorts"]').get_attribute("class"))
+        await page.locator('[data-channel-tab="playlists"]').click()
+        assert await page.locator("#channel-results").count() == 1
+        await page.locator('[data-channel-tab="videos"]').click()
+        await page.locator("#channelquery").fill("Tokyo")
+        assert await page.locator("#channelquery").input_value() == "Tokyo"
+
         assert not errors, errors
         print("PASS: search date filter, theme cycle, backup export, secure imports, Shorts URL parsing, likes/dislikes, threaded comments, comment likes/reports, notification read state; no page errors")
         await browser.close()
