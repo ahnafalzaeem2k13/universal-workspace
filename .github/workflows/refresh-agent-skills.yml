@@ -1,0 +1,43 @@
+name: Refresh curated agent skills
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 5 1 * *"
+  push:
+    branches: [main]
+    paths:
+      - "tools/refresh_agent_skills.py"
+      - "AGENTS.md"
+      - ".github/workflows/refresh-agent-skills.yml"
+      - ".agents/skills/INSTALL.md"
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install curated skills
+        run: python tools/refresh_agent_skills.py
+      - name: Commit skill library
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .agents/skills
+          if git diff --cached --quiet; then
+            echo "Skill library is already current."
+          else
+            git commit -m "chore: install and refresh curated agent skills"
+            git push
+          fi
