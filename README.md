@@ -17,9 +17,9 @@ Then open `http://localhost:8080`.
 - Responsive home feed, category chips, video cards and official YouTube privacy-enhanced embeds.
 - Watch pages, related videos, Shorts-style vertical playback, trending, channel discovery and local search.
 - Channel pages with Videos, Shorts and Playlists tabs, subscriber actions and channel-local filtering.
-- Search filters for content type, duration, upload date and view count.
+- Search suggestions, video/channel result modes, and filters for content type, duration, upload date and view count.
 - Device-local likes/dislikes, subscriptions, watch history, saved videos, threaded comments/replies, comment likes, report capture, read/unread notifications, playlists and profile.
-- Local data backup export as JSON.
+- Local data backup export and validated restore as JSON.
 - Manual YouTube URL and HTTPS direct MP4 import. YouTube playback uses the official embed player; only import media you own or are authorized to share.
 - System/light/dark theme selection and an English/Bengali language toggle foundation.
 - Offline shell cache and responsive layouts.
@@ -35,7 +35,7 @@ python qa/smoke_test.py
 python qa/feature_test.py
 ```
 
-The smoke suite covers desktop, iPad, mobile, category filtering, watch pages, comments, Shorts and mobile navigation. The feature suite covers search date filters, theme selection, local backup export, HTTPS-only MP4 imports and YouTube Shorts URL parsing.
+The smoke suite covers desktop, iPad, mobile, category filtering, watch pages, comments, Shorts and mobile navigation. The feature suite covers search suggestions/channel search/date filters, theme selection, local backup export/restore, HTTPS-only MP4 imports, YouTube Shorts URL parsing, channel tabs, comment interactions and notification read state.
 
 ## Hosting
 
