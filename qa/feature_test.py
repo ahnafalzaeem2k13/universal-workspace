@@ -98,6 +98,7 @@ async def main():
         assert await page.locator("#channelquery").input_value() == "Tokyo"
 
         # Shorts navigation works with mobile controls and keyboard.
+        await page.set_viewport_size({"width": 390, "height": 844})
         await page.locator("#menu").click()
         await page.locator('aside a[href="#shorts"]').click()
         assert await page.locator(".shortframe iframe").count() == 1
@@ -107,6 +108,8 @@ async def main():
         await page.keyboard.press("ArrowUp")
         await page.locator("[data-short-watch]").click()
         assert await page.locator("#commentform").count() == 1
+        assert await page.evaluate("document.documentElement.scrollWidth <= innerWidth")
+        await page.set_viewport_size({"width": 1280, "height": 900})
 
         # Search suggestions and channel-only results.
         await page.locator("#q").fill("Mik")
