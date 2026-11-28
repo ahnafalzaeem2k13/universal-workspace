@@ -18,7 +18,7 @@ Local state is stored only in this browser; it does not sync across devices.
 
 ## Hosting
 
-**Recommended: Cloudflare Pages.** This is a static HTML/CSS/JavaScript app, so no build step is needed. Connect this GitHub repository in Cloudflare Pages, use branch `main`, framework preset `None`, leave the build command empty, and set the output directory to `/` (repository root). See [DEPLOYMENT.md](DEPLOYMENT.md). Each push to `main` will publish automatically once the GitHub connection is authorized.
+**Recommended: Cloudflare Pages.** This is a static HTML/CSS/JavaScript app, so no build step is needed. Connect this GitHub repository in Cloudflare Pages, use branch `main`, framework preset `None`, leave the build command empty, and set the output directory to `.` (repository root). See [DEPLOYMENT.md](DEPLOYMENT.md). Each push to `main` will publish automatically once the GitHub connection is authorized.
 
 GitHub Pages is also supported through `.github/workflows/deploy-pages.yml`, but it requires enabling **Settings → Pages → Source → GitHub Actions** first.
 
