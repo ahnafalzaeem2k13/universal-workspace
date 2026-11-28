@@ -97,6 +97,17 @@ async def main():
         await page.locator("#channelquery").fill("Tokyo")
         assert await page.locator("#channelquery").input_value() == "Tokyo"
 
+        # Shorts navigation works with mobile controls and keyboard.
+        await page.locator("#menu").click()
+        await page.locator('aside a[href="#shorts"]').click()
+        assert await page.locator(".shortframe iframe").count() == 1
+        before_short = await page.locator(".shortframe iframe").get_attribute("src")
+        await page.locator("#next").click()
+        assert await page.locator(".shortframe iframe").get_attribute("src") != before_short
+        await page.keyboard.press("ArrowUp")
+        await page.locator("[data-short-watch]").click()
+        assert await page.locator("#commentform").count() == 1
+
         # Search suggestions and channel-only results.
         await page.locator("#q").fill("Mik")
         assert await page.locator("#vybe-search-suggestions option").count() >= 1
