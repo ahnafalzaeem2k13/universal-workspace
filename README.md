@@ -15,7 +15,7 @@ Then open `http://localhost:8080`.
 ## Implemented frontend features
 
 - Responsive home feed, category chips, video cards and official YouTube privacy-enhanced embeds.
-- Watch pages, related videos, Shorts-style vertical playback, trending, channel discovery and local search.
+- Watch pages, related videos, Shorts-style vertical playback with next/previous and keyboard navigation, trending, channel discovery and local search.
 - Channel pages with Videos, Shorts and Playlists tabs, subscriber actions and channel-local filtering.
 - Search suggestions, video/channel result modes, and filters for content type, duration, upload date and view count.
 - Device-local likes/dislikes, subscriptions, watch history, saved videos, threaded comments/replies, comment likes, report capture, read/unread notifications, playlists and profile.
