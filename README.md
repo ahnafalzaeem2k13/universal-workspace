@@ -45,7 +45,7 @@ Cloudflare Pages is an alternative static host. See [DEPLOYMENT.md](DEPLOYMENT.m
 
 ## YouTube Data API
 
-The optional proxy is in `worker/index.js`. Deploy it as a Cloudflare Worker, add `YOUTUBE_API_KEY` as a Worker secret, and set `window.VYBE_CONFIG.API_BASE` in `config.js` to the Worker URL. Never put API keys in frontend code or GitHub. Endpoints currently include `/api/health`, `/api/search?q=term` and `/api/channel?id=UC...`. API-backed imports are not live until the Worker and secret are configured.
+The optional proxy is in `worker/index.js`. Deploy it as a Cloudflare Worker, add `YOUTUBE_API_KEY` as a Worker secret, set `ALLOWED_ORIGIN` to the exact VYBE site origin, and set `window.VYBE_CONFIG.API_BASE` in `config.js` to the Worker URL. The Worker validates requests, caches successful responses for five minutes, deduplicates concurrent identical requests and reports quota exhaustion. Run `node worker/test.mjs` for mocked unit tests. Never put API keys in frontend code or GitHub. API-backed imports are not live until the Worker and secret are configured.
 
 YouTube API quotas and provider free tiers can change. VYBE does not download or scrape YouTube videos.
 
