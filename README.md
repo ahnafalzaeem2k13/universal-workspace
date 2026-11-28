@@ -33,9 +33,10 @@ With Python Playwright and Chromium installed:
 ```bash
 python qa/smoke_test.py
 python qa/feature_test.py
+node worker/test.mjs
 ```
 
-The smoke suite covers desktop, iPad, mobile, category filtering, watch pages, comments, Shorts and mobile navigation. The feature suite covers search suggestions/channel search/date filters, theme selection, local backup export/restore, HTTPS-only MP4 imports, YouTube Shorts URL parsing/navigation, channel tabs, comment interactions and notification read state.
+The smoke suite covers desktop, iPad, mobile, category filtering, watch pages, comments, Shorts and mobile navigation. The feature suite covers search suggestions/channel search/date filters, theme selection, local backup export/restore, HTTPS-only MP4 imports, YouTube Shorts URL parsing/navigation, channel tabs, comment interactions and notification read state. The Worker suite uses mocked API responses to test CORS, validation, caching, request deduplication, secret isolation and quota errors without spending YouTube API quota.
 
 ## Hosting
 
