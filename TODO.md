@@ -9,14 +9,19 @@ Legend: [ ] not started · [/] in progress · [x] verified complete · [!] block
 - [x] Create rebuild plan and task ledger.
 
 ## P1 — Core experience
-- [ ] Refactor fragile monolithic frontend code into maintainable modules.
+- [/] Refactor fragile monolithic frontend code into maintainable modules.
+- [x] Harden YouTube URL parsing and require HTTPS for direct MP4 imports.
+- [x] Add upload-date filtering to search results.
+- [x] Add system/dark/light theme cycling and system preference detection.
+- [x] Add local data export for likes, subscriptions, comments, playlists and history.
 - [ ] Fix routing, playback fallbacks, mobile navigation and accessibility.
-- [ ] Improve Shorts, search, channel pages and responsive states.
+- [ ] Improve Shorts navigation and channel pages.
 
 ## P2 — User features
-- [ ] Complete local interactions and data export/import.
-- [ ] Add threaded comments, notification state and reporting UI.
-- [ ] Finish Bengali translations and system theme behavior.
+- [ ] Complete local interactions and data import/restore.
+- [ ] Add threaded comments, comment likes, sorting and reporting UI.
+- [ ] Add notification read/unread state.
+- [ ] Finish Bengali translations.
 
 ## P3 — Backend
 - [ ] Harden YouTube Worker and API caching/quota handling.
@@ -25,6 +30,7 @@ Legend: [ ] not started · [/] in progress · [x] verified complete · [!] block
 - [!] Cloud accounts and cross-device sync — waiting for Supabase project credentials.
 
 ## P4 — Release quality
-- [ ] Expand automated browser tests and accessibility checks.
+- [x] Add repeatable Playwright feature regression coverage.
+- [ ] Expand accessibility checks and test API failure states.
 - [ ] Verify live GitHub Pages deployment after changes.
 - [ ] Update README and deployment guide with exact implemented status.
