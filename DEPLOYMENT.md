@@ -8,7 +8,7 @@ VYBE is a plain HTML/CSS/JavaScript app. It does not need Gradio, a Node build, 
 2. Go to **Workers & Pages → Create → Pages → Connect to Git**.
 3. Authorize GitHub and select `ahnafalzaeem2k13/universal-workspace`.
 4. Set the production branch to `main`.
-5. Choose **None** as the framework preset. Leave the build command empty and set the build output directory to `/` (repository root).
+5. Choose **None** as the framework preset. Leave the build command empty and set the build output directory to `.` (repository root).
 6. Deploy. Cloudflare will provide a `*.pages.dev` URL and automatically redeploy on future pushes to `main`.
 
 The repository includes a `_headers` file for basic security headers and sensible cache behavior. The Cloudflare Pages Git connection is a one-time account-owner action; no Cloudflare token should be committed to GitHub.
