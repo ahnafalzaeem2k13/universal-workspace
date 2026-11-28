@@ -1,4 +1,0 @@
-Create a Python script named system_check.py.
-It should display the Python version, operating system,
-current working directory, and available disk space.
-Run the script and report its output.

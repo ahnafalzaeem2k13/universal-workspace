@@ -1,7 +1,0 @@
-- [x] Preserve all 53 practical tools, including colour utilities.
-- [x] Add four local PDF tools: merge, extract pages, rotate, and images-to-PDF.
-- [x] Complete a full visual-system redesign with responsive desktop/tablet/mobile layouts.
-- [x] Add working website light/dark appearance toggle.
-- [x] Bundle PDF library locally and cache it for offline use after first load.
-- [x] Browser QA: 53 tools opened/closed; no page errors; responsive widths; Color and PDF categories; appearance toggle.
-- [ ] Publish refreshed build to the public link.

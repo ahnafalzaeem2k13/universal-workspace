@@ -1,0 +1,4 @@
+name = "vybe-youtube-api"
+main = "worker/index.js"
+compatibility_date = "2026-11-28"
+workers_dev = true
