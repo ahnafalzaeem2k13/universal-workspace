@@ -14,8 +14,9 @@ Legend: [ ] not started · [/] in progress · [x] verified complete · [!] block
 - [x] Add upload-date filtering to search results.
 - [x] Add system/dark/light theme cycling and system preference detection.
 - [x] Add local data backup export for likes, subscriptions, comments, playlists and history.
+- [x] Build channel pages with Videos, Shorts and Playlists tabs and channel filtering.
 - [ ] Fix routing, playback fallbacks, mobile navigation and accessibility.
-- [ ] Improve Shorts navigation and channel pages.
+- [ ] Improve Shorts navigation and playback controls.
 
 ## P2 — User features
 - [x] Add mutually exclusive local likes/dislikes.
